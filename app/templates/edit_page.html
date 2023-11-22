@@ -1,0 +1,53 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<h1 class="container mt-4">Админ панель</h1>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Назначить задачу
+</button>
+
+<table class="table table-borderless mt-4">
+    <thead>
+        <tr>
+            <th scope="col">№</th>
+            <th scope="col">Дата задачи</th>
+            <th scope="col">Название</th>
+            <th scope="col">Редактирование</th>
+            <th scope="col">Удаление</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in list_articles %}
+        <tr>
+            <th>{{i.id}}</th>
+            <td>{{i.create_date}}</td>
+            <td>{{i.name}}</td>
+            <td><a href="">Изменить</a></td>
+            <td><a href="">Снять задачу</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="add_form" method="get"></form>
+                {{form}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                <button form="add_form" type="submit" class="btn btn-primary">Назначить</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

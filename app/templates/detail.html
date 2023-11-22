@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+{% block content %}
+  <div class="container mt-4">
+      <h1>Задача: {{get_article.name}}</h1>
+      <p><a href="/">Назад</a></p>
+      <p><b>Дата создания: </b>{{get_article.create_date}}</p>
+      <p><b>Наименование задачи: </b>{{get_article.name}}</p>
+      <p><b>Содержание: </b>{{get_article.text}}</p>
+  </div>
+{% endblock %}
